@@ -2,7 +2,8 @@
 //contribution: https://github.com/sylviaprabudy/work-day-scheduler
 
   //TODO: dayjs, display current date, sets interval every second
-function displayTime(){
+  //outside of function wrap?
+function displayTimeTop(){
   $("#currentDay").text(moment().format("dddd MMMM Do YYYY hh:mm:ss A"));
   }
 
@@ -10,22 +11,22 @@ function displayTime(){
 $(function () {
 
   //variables
-  var saveBtn = $(".saveBtn");
+  let saveBtn = $(".saveBtn");
   
   //functions
-  function timeBlockColor() {
-    var hour = moment().hour();
+  function timeBlockChangeColor() {
+    let scheduleHour = moment().hour();
 
-    $(".time-block").each(function () {
-      var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+    $(".time-schedule").each(function () {
+      let timeSchedule = parseInt($(this).attr("id").split("hour")[1]);
 
       // To check the time and add the classes for background indicators
-      if (blockTime < hour) {
+      if (timeSchedule < scheduleHour) {
           $(this).removeClass("future");
           $(this).removeClass("present");
           $(this).addClass("past");
       }
-      else if (blockTime === hour) {
+      else if (timeSchedule === scheduleHour) {
           $(this).removeClass("past");
           $(this).removeClass("future");
           $(this).addClass("present");
@@ -41,9 +42,9 @@ $(function () {
 
   //TODO: click event listener using 'this'
   saveBtn.on("click", function () {
-    var time = $(this).siblings(".hour").text();
-    var plan = $(this).siblings(".plan").val();
-    var toDoList = $('#toDo');
+    let time = $(this).siblings(".hour").text();
+    let plan = $(this).siblings(".plan").val();
+    let toDoList = $('#toDo');
     localStorage.setItem(time, plan);
     $('#toDoHeader').show();
     toDoList.append('<li>' + time + " " + plan + '</li>');
@@ -52,8 +53,8 @@ $(function () {
   function usePlanner() {
     //TODO: setting value of local storage
     $(".hour").each(function () {
-      var currHour = $(this).text();
-      var currPlan = localStorage.getItem(currHour);
+      let currHour = $(this).text();
+      let currPlan = localStorage.getItem(currHour);
 
       if (currPlan !== null) {
         $(this).siblings(".plan").val(currPlan);
@@ -61,8 +62,8 @@ $(function () {
     });
   }
 
-  timeBlockColor();
+  timeBlockChangeColor();
   usePlanner();
 
 });
-setInterval(displayTime, 1000);
+setInterval(displayTimeTop, 1000);
