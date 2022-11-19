@@ -22,7 +22,7 @@ textarea {
 }
 
 #toDoHeader{
-  text-shadow: 2px 2px var(--Sky);
+  text-shadow: 1px 1px var(--Sky);
   display: none;
 }
 
@@ -38,7 +38,7 @@ textarea {
   color: var(--Night);
   border-radius: 0;
   border-bottom: 20px solid var(--Beach);
-  text-shadow: 2px 2px var(--Sky);
+  text-shadow: 1px 1px var(--Sky);
 }
 
 .description {
