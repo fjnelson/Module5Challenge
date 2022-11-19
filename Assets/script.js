@@ -14,19 +14,29 @@ $(function () {
   
   //functions
   function timeBlockColor() {
-    var hour = moment().hours();
+    var hour = moment().hour();
 
     $(".time-block").each(function () {
-      var currHour = parseInt($(this).attr("id"));
-      // TODO: Adding past, present, or future class to each time
-      if (currHour > hour) {
-        $(this).addClass("future");
-      } else if (currHour === hour) {
-        $(this).addClass("present");
-      } else {
-        $(this).addClass("past");
+      var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+
+      // To check the time and add the classes for background indicators
+      if (blockTime < hour) {
+          $(this).removeClass("future");
+          $(this).removeClass("present");
+          $(this).addClass("past");
       }
-    });
+      else if (blockTime === hour) {
+          $(this).removeClass("past");
+          $(this).removeClass("future");
+          $(this).addClass("present");
+      }
+      else {
+          $(this).removeClass("present");
+          $(this).removeClass("past");
+          $(this).addClass("future");
+
+      }
+  })
   }
 
   //TODO: click event listener using 'this'
