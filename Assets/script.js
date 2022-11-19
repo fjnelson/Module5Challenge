@@ -6,7 +6,7 @@ $(function () {
 
   //variables
   var saveBtn = $(".saveBtn");
-
+  
   //functions
 
   //TODO: display current date, sets interval every second
@@ -34,8 +34,9 @@ $(function () {
   saveBtn.on("click", function () {
     var time = $(this).siblings(".hour").text();
     var plan = $(this).siblings(".plan").val();
-
+    var toDoList = $('#toDo');
     localStorage.setItem(time, plan);
+    toDoList.append('<li>' + time + " " + plan + '</li>');
   });
 
   function usePlanner() {

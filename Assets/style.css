@@ -14,6 +14,14 @@ textarea {
   border: 1px solid black;
 }
 
+#toDoHeader{
+  text-shadow: 2px 2px #06aed5;
+}
+
+#toDo {
+  text-shadow: none;
+}
+
 .jumbotron {
   text-align: center;
   background-color: lightblue;
@@ -27,7 +35,7 @@ textarea {
   white-space: pre-wrap;
 }
 
-.time-block {
+.time-block, #toDoHeader {
   text-align: center;
   border-radius: 15px;
 }
