@@ -1,6 +1,13 @@
+:root {
+  --Heaven: white;
+  --Sky: steelblue;
+  --Night: black;
+  --Beach: antiquewhite;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: antiquewhite;
+  background-color: var(--Beach);
   font-size: 16px;
   line-height: 1;
 }
@@ -9,13 +16,13 @@ textarea {
   background-color: transparent;
   border: none;
   resize: none;
-  color: #000000;
+  color: var(--Night);
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid var(--Night);
 }
 
 #toDoHeader{
-  text-shadow: 2px 2px #06aed5;
+  text-shadow: 2px 2px var(--Sky);
   display: none;
 }
 
@@ -28,10 +35,10 @@ textarea {
 .jumbotron {
   text-align: center;
   background-color: lightblue;
-  color: black;
+  color: var(--Night);
   border-radius: 0;
-  border-bottom: 20px solid antiquewhite;
-  text-shadow: 2px 2px #06aed5;
+  border-bottom: 20px solid var(--Beach);
+  text-shadow: 2px 2px var(--Sky);
 }
 
 .description {
@@ -46,37 +53,37 @@ textarea {
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;
+  border-top: 1px solid var(--Heaven);
 }
 
 .hour {
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #000000;
+  background-color: var(--Heaven);
+  color: var(--Night);
+  border: 1px solid var(--Night);
 }
 
 .past {
-  background-color: #d3d3d3;
-  color: white;
+  background-color: lightgray;
+  color: var(--Heaven)
 }
 
 .present {
-  background-color: #ff6961;
-  color: white;
+  background-color: lightcoral;
+  color: var(--Heaven)
 }
 
 .future {
-  background-color: #77dd77;
-  color: white;
+  background-color: lightgreen;
+  color: var(--Heaven)
 }
 
 .saveBtn {
   font-size: 30px;
-  border-left: 1px solid black;
+  border-left: 1px solid var(--Night);
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
-  color: black;
+  background-color: var(--Sky);
+  color: var(--Night);
 }
 
 .saveBtn i:hover {
