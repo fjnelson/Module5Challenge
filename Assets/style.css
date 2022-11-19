@@ -16,10 +16,13 @@ textarea {
 
 #toDoHeader{
   text-shadow: 2px 2px #06aed5;
+  display: none;
 }
 
 #toDo {
   text-shadow: none;
+  list-style: none;
+  font-size: 20px;
 }
 
 .jumbotron {

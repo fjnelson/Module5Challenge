@@ -36,6 +36,7 @@ $(function () {
     var plan = $(this).siblings(".plan").val();
     var toDoList = $('#toDo');
     localStorage.setItem(time, plan);
+    $('#toDoHeader').show();
     toDoList.append('<li>' + time + " " + plan + '</li>');
   });
 
