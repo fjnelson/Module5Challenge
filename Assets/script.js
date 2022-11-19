@@ -37,14 +37,30 @@ $(function () {
 
   //TODO: click event listener using 'this'
   saveBtn.on("click", function () {
-    let time = $(this).siblings(".hour").text();
-    let plan = $(this).siblings(".plan").val();
+    let timeHour = $(this).siblings(".hour").text();
+    let planText = $(this).siblings(".plan").val();
     let toDoList = $("#toDo");
-    localStorage.setItem(time, plan);
+    localStorage.setItem(timeHour, planText);
     $("#toDoHeader").show();
-    toDoList.append("<li>" + time + " " + plan + "</li>");
+    toDoList.append("<li>" + timeHour + " " + planText + "</li>");
   });
 
+  function usePlanner() {
+    //TODO: getting value out of local storage, if one exists
+    $(".hour").each(function () {
+      let currHour = $(this).text();
+      let currPlan = localStorage.getItem(currHour);
+
+      if (currPlan !== null) {
+        $(this).siblings(".plan").val(currPlan);
+        $("#toDoHeader").show();
+
+      }
+
+    });
+  }
+
+  usePlanner();
   timeBlockChangeColor();
 });
 setInterval(displayTimeTop, 1000);
