@@ -1,6 +1,11 @@
 //contribution: https://github.com/mmeii/work-day-scheduler
 //contribution: https://github.com/sylviaprabudy/work-day-scheduler
 
+  //TODO: dayjs, display current date, sets interval every second
+function displayTime(){
+  $("#currentDay").text(moment().format("dddd MMMM Do YYYY hh:mm:ss A"));
+  }
+
 //TODO: wrapping function to ensure code doesn't run until browser renders
 $(function () {
 
@@ -8,12 +13,6 @@ $(function () {
   var saveBtn = $(".saveBtn");
   
   //functions
-
-  //TODO: display current date, sets interval every second
-  function displayTime(){
-  $("#currentDay").text(moment().format("dddd MMMM Do YYYY hh:mm:ss"));
-  }
-
   function timeBlockColor() {
     var hour = moment().hours();
 
@@ -54,5 +53,6 @@ $(function () {
 
   timeBlockColor();
   usePlanner();
-  setInterval(displayTime, 1000);
+
 });
+setInterval(displayTime, 1000);
