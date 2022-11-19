@@ -4,7 +4,7 @@
   //TODO: dayjs, display current date, sets interval every second
   //outside of function wrap?
 function displayTimeTop(){
-  $("#currentDay").text(moment().format("dddd MMMM Do YYYY hh:mm:ss A"));
+  $("#currentDay").text(dayjs().format("dddd MMMM D, YYYY hh:mm:ss A"));
   }
 
 //TODO: wrapping function to ensure code doesn't run until browser renders
@@ -15,11 +15,10 @@ $(function () {
   
   //functions
   function timeBlockChangeColor() {
-    let scheduleHour = moment().hour();
+    let scheduleHour = dayjs().hour();
 
     $(".time-schedule").each(function () {
       let timeSchedule = parseInt($(this).attr("id").split("hour")[1]);
-
       // To check the time and add the classes for background indicators
       if (timeSchedule < scheduleHour) {
           $(this).removeClass("future");
@@ -50,20 +49,7 @@ $(function () {
     toDoList.append('<li>' + time + " " + plan + '</li>');
   });
 
-  function usePlanner() {
-    //TODO: setting value of local storage
-    $(".hour").each(function () {
-      let currHour = $(this).text();
-      let currPlan = localStorage.getItem(currHour);
-
-      if (currPlan !== null) {
-        $(this).siblings(".plan").val(currPlan);
-      }
-    });
-  }
-
   timeBlockChangeColor();
-  usePlanner();
 
 });
 setInterval(displayTimeTop, 1000);
