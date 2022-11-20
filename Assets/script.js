@@ -45,22 +45,20 @@ $(function () {
     toDoList.append("<li>" + timeHour + " " + planText + "</li>");
   });
 
-  function usePlanner() {
+  function getValueStorage() {
     //TODO: getting value out of local storage, if one exists
     $(".hour").each(function () {
-      let currHour = $(this).text();
-      let currPlan = localStorage.getItem(currHour);
+      let storageHour = $(this).text();
+      let storagePlan = localStorage.getItem(storageHour);
 
-      if (currPlan !== null) {
-        $(this).siblings(".plan").val(currPlan);
+      if (storagePlan !== null) {
+        $(this).siblings(".plan").val(storagePlan);
         $("#toDoHeader").show();
-
       }
-
     });
   }
 
-  usePlanner();
+  getValueStorage();
   timeBlockChangeColor();
 });
 setInterval(displayTimeTop, 1000);
