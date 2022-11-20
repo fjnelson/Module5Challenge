@@ -3,7 +3,7 @@
 ## Description
 
 Bootcamp: Module 5 Challenge <br />
-Third-Party APIs: Work Day Scheduler
+Third-Party APIs: Work Day Scheduler <br />
 Codebase correction that follows accessibility standards so that the site is optimized for search engines
 
 
